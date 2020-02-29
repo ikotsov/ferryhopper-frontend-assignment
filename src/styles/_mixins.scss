@@ -1,0 +1,16 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Mobile
+
+$breakpoint argument choices:
+- mobile
+
+1em = 16px
+*/
+@mixin respond($breakpoint) {
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+}
