@@ -18,11 +18,10 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 3rem;
+  padding: 0 4.4rem;
 
   font-family: $font-primary;
   font-weight: 400;
-  /*font-size: 16px;*/
   line-height: 1.7;
 
   @include respond(tab-port) {
