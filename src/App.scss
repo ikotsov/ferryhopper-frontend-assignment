@@ -1,3 +1,4 @@
+// IMPORTS
 @import "styles/mixins";
 @import "styles/variables";
 @import "styles/base";
@@ -10,6 +11,7 @@
   }
 }
 
+// HEADER
 .header {
   display: flex;
   justify-content: space-evenly;
@@ -36,6 +38,7 @@
   }
 }
 
+// MENU
 .menu {
   display: flex;
   list-style-type: none;
@@ -53,10 +56,11 @@
     padding: 0.9rem 2rem;
     border: 1px solid $color-tab-gray;
     border-radius: 3rem;
+    background: transparent;
     color: $color-black;
     font-size: 1.6rem;
     text-decoration: none;
-    outline: none;
+    cursor: pointer;
 
     &.active,
     &:hover {
@@ -65,6 +69,7 @@
   }
 }
 
+// CARDS
 .cards {
   display: flex;
   flex-wrap: wrap;

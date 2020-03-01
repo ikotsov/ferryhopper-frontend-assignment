@@ -3,28 +3,40 @@ import heart from "../assets/heart.svg";
 import heartFilled from "../assets/heart-filled.svg";
 
 function Cards(props) {
-  const handleClick = item => {
-    if (checkIfFavourite(item)) {
-      // remove item from favourites
-      props.setFavourites(
-        props.favourites.filter(newItem => {
-          return newItem.id !== item.id;
-        })
-      );
-    } else {
-      // add item in favourites
-      props.setFavourites([...props.favourites, item]);
-    }
+  const addFavourite = item => {
+    props.setFavourites([...props.favourites, item]);
+  };
+
+  const removeFavourite = item => {
+    props.setFavourites(
+      props.favourites.filter(newItem => {
+        return newItem.id !== item.id;
+      })
+    );
   };
 
   const checkIfFavourite = item => {
-    for (let i = 0; i < props.favourites.length; i++) {
-      if (props.favourites[i].id === item.id) {
-        return true;
-      }
+    if (props.favourites.filter(newItem => newItem.id === item.id).length !== 0) {
+      return true;
     }
 
     return false;
+  };
+
+  const handleClick = item => {
+    if (checkIfFavourite(item)) {
+      removeFavourite(item);
+    } else {
+      addFavourite(item);
+    }
+  };
+
+  const handleDoubleClick = item => {
+    if (checkIfFavourite(item)) {
+      // do nothing
+    } else {
+      addFavourite(item);
+    }
   };
 
   const items = props.activeMenu === "destinations" ? props.destinations : props.favourites;
@@ -34,7 +46,7 @@ function Cards(props) {
       <ul className="cards">
         {items.map(item => {
           return (
-            <li className="card" key={item.id}>
+            <li className="card" key={item.id} onDoubleClick={() => handleDoubleClick(item)}>
               <div className="card__image" style={{ backgroundImage: `url(${item.image})` }}></div>
               <div className="card__details">
                 <div className="card__details-top">

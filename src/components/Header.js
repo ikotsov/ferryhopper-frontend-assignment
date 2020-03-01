@@ -8,22 +8,20 @@ function Header(props) {
       <div className="header__menu">
         <ul className="menu">
           <li className="menu__item">
-            <a
-              href="javascript:void(0)"
+            <button
               onClick={() => props.setActiveMenu("destinations")}
               className={props.activeMenu === "destinations" ? "menu__link active" : "menu__link"}
             >
               Destinations
-            </a>
+            </button>
           </li>
           <li className="menu__item">
-            <a
-              href="javascript:void(0)"
+            <button
               onClick={() => props.setActiveMenu("favourites")}
               className={props.activeMenu === "favourites" ? "menu__link active" : "menu__link"}
             >
               Favourites
-            </a>
+            </button>
           </li>
         </ul>
       </div>
