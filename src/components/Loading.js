@@ -1,5 +1,10 @@
 import React from "react";
 
+const styles = {
+  fontSize: "1.5rem",
+  textAlign: "center"
+};
+
 export const Loading = () => {
-  return <p>Loading...</p>;
+  return <p style={styles}>Loading...</p>;
 };
